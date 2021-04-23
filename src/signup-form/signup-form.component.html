@@ -1,11 +1,27 @@
-<form>
+<!-- 
+    apply directive to form element,
+    object form defined in component
+-->
+
+<form [formGroup]="form">
   <div class="form-group">
     <label for="username">Username</label>
-    <input ngModel="" id="username" type="text" class="form-control" />
+    <input
+      formControlName="username"
+      ngModel="username"
+      id="username"
+      type="text"
+      class="form-control"
+    />
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input id="password" type="text" class="form-control" />
+    <input
+      formControlName="password"
+      id="password"
+      type="text"
+      class="form-control"
+    />
   </div>
   <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
