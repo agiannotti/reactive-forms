@@ -11,12 +11,16 @@ export class UsernameValidators {
     return null;
   }
 
-  static shouldBeUnique(control: AbstractControl): ValidationErrors | null {
-    setTimeout(() => {
-      if (control.value === 'tony') return { shouldBeUnique: true };
-      return null;
-    }, 2000);
-
-    return null;
+  // async validator implementation
+  static shouldBeUnique(
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'tony') resolve({ shouldBeUnique: true });
+        // use else instead of return here, because we want to continue within the function
+        else resolve(null);
+      }, 2000);
+    });
   }
 }
