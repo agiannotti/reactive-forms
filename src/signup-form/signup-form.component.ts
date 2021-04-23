@@ -1,3 +1,4 @@
+import { UsernameValidators } from '../common/validators/username.validators';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -14,11 +15,11 @@ export class SignupFormComponent {
 
   // this is how to explicitly create form objects
   // assign validators when creating form control objects
-
   form = new FormGroup({
     username: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
+      UsernameValidators.cannotContainSpace,
     ]),
     password: new FormControl('', Validators.required),
   });
