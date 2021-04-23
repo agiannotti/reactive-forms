@@ -16,7 +16,10 @@ export class SignupFormComponent {
   // assign validators when creating form control objects
 
   form = new FormGroup({
-    username: new FormControl('', Validators.required),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     password: new FormControl('', Validators.required),
   });
   // define property to give us access to username form control object
