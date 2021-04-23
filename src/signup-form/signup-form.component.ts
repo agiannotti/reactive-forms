@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'signup-form',
@@ -13,8 +13,15 @@ export class SignupFormComponent {
   // will be stored in the abstract control!
 
   // this is how to explicitly create form objects
+  // assign validators when creating form control objects
+
   form = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl(),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
+  // define property to give us access to username form control object
+  // get 'getter' internal method
+  get username() {
+    return this.form.get('username');
+  }
 }
