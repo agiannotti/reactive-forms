@@ -16,6 +16,10 @@ export class SignupFormComponent {
   // this is how to explicitly create form objects
   // assign validators when creating form control objects
   form = new FormGroup({
+    account: new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+    }),
     username: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
@@ -27,6 +31,12 @@ export class SignupFormComponent {
   // define property to give us access to username form control object
   // get 'getter' internal method
   get username() {
-    return this.form.get('username');
+    return this.form.get('account.username');
+  }
+
+  login() {
+    this.form.setErrors({
+      invalidLogin: true,
+    });
   }
 }
