@@ -12,7 +12,11 @@ export class UsernameValidators {
   }
 
   static shouldBeUnique(control: AbstractControl): ValidationErrors | null {
-    if (control.value === 'tony') return { shouldBeUnique: true };
+    setTimeout(() => {
+      if (control.value === 'tony') return { shouldBeUnique: true };
+      return null;
+    }, 2000);
+
     return null;
   }
 }
