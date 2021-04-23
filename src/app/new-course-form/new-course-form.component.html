@@ -1,10 +1,12 @@
-<form>
+<form [formGroup]="form">
   <input
+    formControlName="name"
     type="text"
     class="form-control"
     (keyup.enter)="addTopic(topic)"
     #topic
   />
+  <div><input formControlName="email" /><input formControlName="phone" /></div>
   <ul class="list-group">
     <li
       *ngFor="let topic of topics.controls"

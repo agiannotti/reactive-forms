@@ -13,19 +13,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-course-form.component.css'],
 })
 export class NewCourseFormComponent {
-  form = new FormGroup({
-    name: new FormControl({
-      contact: new FormGroup({
-        email: new FormControl(),
-        phone: new FormControl(),
-      }),
-    }),
-    topics: new FormArray([]),
-  });
+  // form = new FormGroup({
+  //   name: new FormControl({
+  //     contact: new FormGroup({
+  //       email: new FormControl(),
+  //       phone: new FormControl(),
+  //     }),
+  //   }),
+  //   topics: new FormArray([]),
+  // });
   // ALTERNATIVELY USE FORM BUILDER
-
+  form;
   constructor(fb: FormBuilder) {
-    fb.group({
+    this.form = fb.group({
       name: ['', Validators.required],
       contact: fb.group({
         email: [],
